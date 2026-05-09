@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOEICスコアアップ計画 - ダッシュボード</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary": "#002045",
+                      "surface-bright": "#f7fafc",
+                      "surface-container-highest": "#e0e3e5",
+                      "secondary-fixed-dim": "#ffb783",
+                      "on-surface": "#181c1e",
+                      "surface-container-lowest": "#ffffff",
+                      "error": "#ba1a1a",
+                      "inverse-primary": "#adc7f7",
+                      "on-primary-fixed-variant": "#2d476f",
+                      "on-tertiary-fixed": "#001d37",
+                      "on-tertiary-container": "#58a2f0",
+                      "surface-container-low": "#f1f4f6",
+                      "on-background": "#181c1e",
+                      "background": "#f7fafc",
+                      "surface-tint": "#455f88",
+                      "surface-container": "#ebeef0",
+                      "on-tertiary-fixed-variant": "#00497e",
+                      "on-tertiary": "#ffffff",
+                      "outline-variant": "#c4c6cf",
+                      "on-secondary": "#ffffff",
+                      "secondary-container": "#fe9743",
+                      "outline": "#74777f",
+                      "tertiary-fixed-dim": "#9fcaff",
+                      "inverse-surface": "#2d3133",
+                      "on-primary-container": "#86a0cd",
+                      "surface-variant": "#e0e3e5",
+                      "secondary": "#944b00",
+                      "on-primary-fixed": "#001b3c",
+                      "tertiary-fixed": "#d2e4ff",
+                      "on-error": "#ffffff",
+                      "secondary-fixed": "#ffdcc5",
+                      "surface-container-high": "#e5e9eb",
+                      "primary-fixed-dim": "#adc7f7",
+                      "primary-container": "#1a365d",
+                      "surface-dim": "#d7dadc",
+                      "on-secondary-fixed": "#301400",
+                      "on-secondary-fixed-variant": "#703700",
+                      "on-error-container": "#93000a",
+                      "inverse-on-surface": "#eef1f3",
+                      "surface": "#f7fafc",
+                      "on-surface-variant": "#43474e",
+                      "primary-fixed": "#d6e3ff",
+                      "error-container": "#ffdad6",
+                      "tertiary-container": "#003762",
+                      "on-secondary-container": "#6b3500",
+                      "on-primary": "#ffffff",
+                      "tertiary": "#00213e"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "md": "16px",
+                      "xs": "4px",
+                      "gutter": "16px",
+                      "lg": "24px",
+                      "margin-desktop": "48px",
+                      "xl": "32px",
+                      "unit": "4px",
+                      "margin-mobile": "16px",
+                      "sm": "8px"
+              },
+              "fontFamily": {
+                      "label-md": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "label-lg": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm">
+<div class="flex items-center gap-md">
+<button class="md:hidden text-primary dark:text-inverse-primary active:scale-95 transition-transform duration-150 flex items-center justify-center">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim whitespace-nowrap">
+                TOEICスコアアップ計画
+            </div>
+</div>
+<!-- Desktop Navigation -->
+<nav class="hidden md:flex items-center gap-sm">
+<a class="px-4 py-2 rounded-lg text-primary dark:text-primary-fixed-dim font-bold bg-surface-container-high transition-colors" href="#">ダッシュボード</a>
+<a class="px-4 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors" href="#">カレンダー</a>
+<a class="px-4 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors" href="#">分析</a>
+<a class="px-4 py-2 rounded-lg text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high transition-colors" href="#">プロフィール</a>
+</nav>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden flex-shrink-0 border border-outline-variant">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDn2VSqz6ryMwAPY_NeJ_49X7KmZFId0dMFE-eerFruR2xrjXIsE6GCBJpLqMLVm3td5wtxEMkVMO4Nz7YEEMPdq719DlZRxzsz73Fm-62HmzTEj7UPQBc4BxqRq0_6eZXmlEgG73Gu_s2yHij8ZNhUH3VXwHJsvxH0kIYeMaL53vSlOfkxOt2fwtb7n4izm7YTyIpmdFBfF5kRlz3X5MeZj7MQ8b2PiqhavPsGyFhkI-G4RJinI5fZmIJ4HjXG_qVxyS11g2vMmzin"/>
+</div>
+</header>
+<!-- Main Content -->
+<main class="pt-24 pb-32 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-lg">
+<!-- Welcome & Countdown Card (Bento Area 1) -->
+<section class="md:col-span-8 flex flex-col gap-md bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_6px_rgba(26,54,93,0.04)]">
+<div class="flex flex-col gap-xs">
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">おはようございます。</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">集中を維持しましょう。目標スコアはもうすぐそこです。</p>
+</div>
+<div class="mt-sm flex flex-col sm:flex-row items-start sm:items-center gap-md p-md bg-primary-fixed rounded-lg border border-primary-fixed-dim">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">event</span>
+</div>
+<div class="flex-1">
+<div class="font-label-md text-label-md text-on-primary-fixed-variant uppercase tracking-wider mb-xs">次回のTOEICテスト</div>
+<div class="font-headline-md text-headline-md text-on-primary-fixed font-bold">残り14日</div>
+</div>
+<button class="mt-sm sm:mt-0 px-4 py-2 bg-surface-container-lowest text-primary border border-outline-variant rounded-lg font-label-md text-label-md hover:bg-surface-container-low transition-colors shadow-sm">
+                    詳細を見る
+                </button>
+</div>
+</section>
+<!-- Overall Progress Card (Bento Area 2) -->
+<section class="md:col-span-4 flex flex-col items-center justify-between bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_6px_rgba(26,54,93,0.04)]">
+<div class="w-full flex justify-between items-center mb-md">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">現在の準備状況</h2>
+<span class="material-symbols-outlined text-outline">info</span>
+</div>
+<div class="relative w-40 h-40 flex-shrink-0 my-auto">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<!-- Background Track -->
+<circle class="text-surface-container-high" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-width="10"></circle>
+<!-- Progress Fill (65%) -->
+<circle class="text-primary transition-all duration-1000 ease-out" cx="50" cy="50" fill="transparent" r="42" stroke="currentColor" stroke-dasharray="263.89" stroke-dashoffset="92.36" stroke-linecap="round" stroke-width="10"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-headline-lg text-headline-lg text-primary">65%</span>
+</div>
+</div>
+<div class="mt-md w-full bg-surface-container-low rounded-lg p-sm text-center border border-outline-variant">
+<p class="font-body-sm text-body-sm text-on-surface-variant">予想スコア: <span class="font-semibold text-primary">700-750</span></p>
+</div>
+</section>
+<!-- Today's Focus Card (Bento Area 3) -->
+<section class="md:col-span-8 flex flex-col gap-md bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-[0px_4px_6px_rgba(26,54,93,0.04)]">
+<div class="flex justify-between items-center border-b border-surface-container pb-sm">
+<h2 class="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">今日の重点学習</h2>
+<button class="font-label-md text-label-md text-primary hover:text-surface-tint transition-colors flex items-center gap-xs">
+                    すべて見る <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+<div class="flex flex-col gap-sm">
+<!-- Task 1 -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-md border border-outline-variant rounded-lg hover:border-primary transition-colors cursor-pointer group shadow-sm bg-surface">
+<div class="flex items-start sm:items-center gap-md mb-sm sm:mb-0">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed group-hover:bg-primary group-hover:text-on-primary transition-colors flex-shrink-0">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[20px] leading-tight mb-xs">Part 5: 短文穴埋め問題</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">学習のポイント: 発展的な文法構造と語彙</p>
+</div>
+</div>
+<div class="flex items-center gap-sm mt-sm sm:mt-0 sm:ml-auto">
+<span class="px-3 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md whitespace-nowrap">高難度</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 45m
+                        </span>
+</div>
+</div>
+<!-- Task 2 -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-md border border-outline-variant rounded-lg hover:border-primary transition-colors cursor-pointer group shadow-sm bg-surface">
+<div class="flex items-start sm:items-center gap-md mb-sm sm:mb-0">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed group-hover:bg-secondary group-hover:text-on-secondary transition-colors flex-shrink-0">
+<span class="material-symbols-outlined">auto_stories</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface text-[20px] leading-tight mb-xs">Part 7: 読解問題</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">学習のポイント: ダブルパッセージと推測問題</p>
+</div>
+</div>
+<div class="flex items-center gap-sm mt-sm sm:mt-0 sm:ml-auto">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed-dim text-on-secondary-fixed-variant font-label-md text-label-md whitespace-nowrap">中難度</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">schedule</span> 60m
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick Actions & Stats (Bento Area 4) -->
+<section class="md:col-span-4 flex flex-col gap-lg">
+<!-- Log Hours CTA -->
+<div class="bg-primary border border-primary-container rounded-xl p-lg shadow-[0px_8px_16px_rgba(0,32,69,0.15)] flex flex-col items-center text-center relative overflow-hidden group cursor-pointer hover:bg-surface-tint transition-colors">
+<!-- Decorative subtle background icon -->
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-[120px] text-primary-container opacity-50 pointer-events-none transition-transform group-hover:scale-110">timer</span>
+<span class="material-symbols-outlined text-on-primary text-5xl mb-md font-light relative z-10" style="font-variation-settings: 'wght' 200;">timer</span>
+<h3 class="font-headline-md text-headline-md text-on-primary mb-xs relative z-10">学習を記録する</h3>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim mb-lg relative z-10">学習時間を記録して、モチベーションを高めましょう。</p>
+<button class="w-full py-3 px-6 bg-secondary-container hover:bg-secondary text-on-secondary-container hover:text-on-secondary font-label-lg text-label-lg rounded-lg transition-colors shadow-md relative z-10 flex justify-center items-center gap-sm">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    タイマーを開始
+                </button>
+</div>
+<!-- Mini Stat Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center justify-between shadow-[0px_4px_6px_rgba(26,54,93,0.04)]">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container bg-opacity-20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">学習継続</span>
+</div>
+<div class="text-right">
+<span class="font-headline-md text-headline-md text-primary font-bold">12</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase ml-xs">日</span>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-surface dark:bg-inverse-surface py-2 border-t border-outline-variant dark:border-outline shadow-[0px_-4px_6px_rgba(26,54,93,0.04)] md:hidden">
+<a class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-xl px-4 py-1 active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-label-md mt-1">ダッシュボード</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label-md text-label-md mt-1">カレンダー</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-md text-label-md mt-1">分析</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-4 py-1 hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full active:scale-90 transition-all duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-md text-label-md mt-1">プロフィール</span>
+</a>
+</nav>
+</body></html>

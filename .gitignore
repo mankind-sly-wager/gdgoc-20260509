@@ -23,6 +23,10 @@
 # misc
 .DS_Store
 *.pem
+.gcloud/
+.tmp/
+/package.zip
+/stitch_toeic_study_planner.zip
 
 # debug
 npm-debug.log*

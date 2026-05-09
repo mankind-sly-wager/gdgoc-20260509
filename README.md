@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TOEIC Study Planner
 
-## Getting Started
+TOEICの現在スコア、目標スコア、試験日、1日の学習時間から、毎日の学習タスクを作成するNext.js 16アプリです。Stitchで作成した日本語UIをベースに、タスク、メモ、分析、設定を1つのCloud Run向けアプリに統合しています。
 
-First, run the development server:
+## Live Demo
+
+https://toeic-study-planner-l5cazekdoq-an.a.run.app
+
+## Credits
+
+feat. yukiさん, tomokiさん
+
+## Design Specification
+
+Stitchで作成した仕様書と画面案は `docs/stitch/stitch_toeic_study_planner/` に展開しています。
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Data Storage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+学習データはブラウザのlocalStorageに保存します。
 
-## Learn More
+- Storage key: `toeicState`
+- Server database: none
+- Authentication: none
 
-To learn more about Next.js, take a look at the following resources:
+Cloud Runのコンテナはステートレスに保ち、ユーザーごとの学習データは各ブラウザに残ります。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Build And Run Container Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run lint
+npm run build
+docker build -t toeic-study-planner .
+docker run --rm -p 8080:8080 -e PORT=8080 toeic-study-planner
+```
 
-## Deploy on Vercel
+Open http://localhost:8080.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy To Google Cloud Run
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Install and initialize the Google Cloud CLI first:
+
+- Google Cloud CLI install guide: https://docs.cloud.google.com/sdk/docs/install-sdk?hl=ja
+- Cloud Run deploy guide: https://docs.cloud.google.com/run/docs/deploying
+
+Login and choose your project:
+
+```bash
+gcloud auth login
+gcloud config set project YOUR_PROJECT_ID
+gcloud auth configure-docker asia-northeast1-docker.pkg.dev
+```
+
+Enable the required APIs:
+
+```bash
+gcloud services enable \
+  cloudbuild.googleapis.com \
+  run.googleapis.com \
+  artifactregistry.googleapis.com
+```
+
+Create the Artifact Registry repository once:
+
+```bash
+gcloud artifacts repositories create cloud-run \
+  --repository-format=docker \
+  --location=asia-northeast1 \
+  --description="Cloud Run container images"
+```
+
+Build and deploy with Cloud Build:
+
+```bash
+gcloud builds submit \
+  --config cloudbuild.yaml \
+  --substitutions=_SERVICE_NAME=toeic-study-planner,_REGION=asia-northeast1,_REPOSITORY=cloud-run
+```
+
+The Cloud Build config builds the Docker image, pushes it to Artifact Registry, and deploys it to Cloud Run with unauthenticated access enabled on port 8080.

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html lang="ja"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TOEIC Success Planner - あなたの学習プラン</title>
+<!-- Google Fonts & Material Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration (Design System) -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#2d3133",
+                    "on-primary-fixed": "#001b3c",
+                    "on-primary-container": "#86a0cd",
+                    "inverse-primary": "#adc7f7",
+                    "surface-variant": "#e0e3e5",
+                    "surface-container-low": "#f1f4f6",
+                    "surface-dim": "#d7dadc",
+                    "inverse-on-surface": "#eef1f3",
+                    "secondary-container": "#fe9743",
+                    "primary-container": "#1a365d",
+                    "outline": "#74777f",
+                    "surface": "#f7fafc",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#ffb783",
+                    "primary": "#002045",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#6b3500",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-container-high": "#e5e9eb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed-variant": "#00497e",
+                    "on-tertiary-fixed": "#001d37",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#181c1e",
+                    "tertiary": "#00213e",
+                    "surface-bright": "#f7fafc",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#301400",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "on-tertiary-container": "#58a2f0",
+                    "on-surface-variant": "#43474e",
+                    "outline-variant": "#c4c6cf",
+                    "on-primary": "#ffffff",
+                    "background": "#f7fafc",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e0e3e5",
+                    "tertiary-fixed-dim": "#9fcaff",
+                    "tertiary-container": "#003762",
+                    "secondary-fixed": "#ffdcc5",
+                    "surface-container": "#ebeef0",
+                    "tertiary-fixed": "#d2e4ff",
+                    "on-secondary-fixed-variant": "#703700",
+                    "on-background": "#181c1e",
+                    "secondary": "#944b00",
+                    "primary-fixed-dim": "#adc7f7",
+                    "on-secondary": "#ffffff",
+                    "surface-tint": "#455f88"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "lg": "24px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "margin-desktop": "48px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "xs": "4px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "label-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "700"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface border-b border-outline-variant">
+<button class="text-primary hover:bg-surface-container-high transition-colors p-2 rounded-full active:scale-95 duration-150 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-headline-md text-headline-md font-bold text-primary">TOEIC Success Planner</h1>
+<button class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center overflow-hidden hover:bg-surface-container-high transition-colors active:scale-95 duration-150">
+<!-- Avatar Placeholder -->
+<span class="material-symbols-outlined text-on-primary-fixed text-sm">person</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-24 pb-28 px-margin-mobile md:px-margin-desktop max-w-[1200px] mx-auto w-full flex flex-col gap-lg">
+<!-- Page Title -->
+<div class="mb-md">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile md:font-display-lg md:text-display-lg text-primary tracking-tight">あなたの学習プラン</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">目標スコア達成に向けた、カスタマイズされた道のりです。</p>
+</div>
+<!-- Section 1: 目標達成までの道のり (Timeline/Goal Card) -->
+<section class="bg-surface-container-lowest border border-outline-variant shadow-[0px_4px_6px_rgba(26,54,93,0.04)] rounded-xl p-lg flex flex-col md:flex-row items-center gap-lg">
+<div class="flex-shrink-0 flex flex-col items-center justify-center w-32 h-32 rounded-full border-4 border-secondary-container bg-surface-container-low">
+<span class="font-display-lg text-display-lg text-primary font-bold">90</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Days</span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-md text-headline-md text-primary mb-sm">目標達成までの道のり</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">現在のスコアから目標スコアへ到達するために、毎日着実に学習を進める約3ヶ月間のプログラムです。無理のないペースで、確実なスコアアップを目指します。</p>
+<div class="mt-md w-full bg-surface-variant rounded-full h-2 overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 10%;"></div>
+</div>
+<div class="flex justify-between mt-2 font-label-md text-label-md text-on-surface-variant">
+<span>本日開始</span>
+<span>目標達成</span>
+</div>
+</div>
+</section>
+<!-- Section 2: 推奨される勉強方法 (Methodology Grid) -->
+<section class="flex flex-col gap-md">
+<h3 class="font-headline-md text-headline-md text-primary">推奨される勉強方法</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Method Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant shadow-[0px_4px_6px_rgba(26,54,93,0.04)] rounded-xl p-md flex gap-md items-start">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-primary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-primary mb-xs">文法強化: Part 5 フォーカス</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">毎日20問の文法問題を解き、解説を熟読します。頻出パターンを暗記し、解答スピードを劇的に向上させます。</p>
+</div>
+</div>
+<!-- Method Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant shadow-[0px_4px_6px_rgba(26,54,93,0.04)] rounded-xl p-md flex gap-md items-start">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary" data-weight="fill" style="font-variation-settings: 'FILL' 1;">headphones</span>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg text-primary mb-xs">リスニング強化: シャドーイング</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Part 3と4の音源を使用し、スクリプトを見ずに音声に少し遅れて発音するトレーニングを1日15分行います。</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: 学習のアドバイスとコツ (Expert Tips) -->
+<section class="bg-surface-container-lowest border border-outline-variant shadow-[0px_4px_6px_rgba(26,54,93,0.04)] rounded-xl p-lg">
+<h3 class="font-headline-md text-headline-md text-primary mb-md">学習のアドバイスとコツ</h3>
+<ul class="flex flex-col gap-sm">
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary-container mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface"><strong>毎日20単語を覚える：</strong> 隙間時間を活用し、アプリや単語帳で反復学習を徹底しましょう。</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary-container mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface"><strong>週末は模擬テストを実施：</strong> 本番と同じ時間配分で模試を解き、タイムマネジメント感覚を養います。</span>
+</li>
+<li class="flex items-start gap-sm">
+<span class="material-symbols-outlined text-secondary-container mt-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-body-md text-body-md text-on-surface"><strong>間違えた問題を記録する：</strong> 弱点ノートを作成し、テスト直前に見直せるように整理しておきます。</span>
+</li>
+</ul>
+</section>
+<!-- Primary CTA Button -->
+<div class="mt-xl flex justify-center">
+<button class="bg-secondary-container text-on-secondary-container hover:bg-[#e0863b] transition-colors active:scale-95 duration-200 font-label-lg text-label-lg py-4 px-12 rounded-full shadow-md w-full md:w-auto min-w-[280px]">
+                このプランで開始する
+            </button>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center bg-surface py-2 border-t border-outline-variant shadow-[0px_-4px_6px_rgba(26,54,93,0.04)]">
+<!-- Dashboard (Active) -->
+<button class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-xl px-4 py-1 active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined mb-1" data-weight="fill" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</button>
+<!-- Calendar (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low rounded-full active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined mb-1">calendar_month</span>
+<span class="font-label-md text-label-md">Calendar</span>
+</button>
+<!-- Analysis (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low rounded-full active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined mb-1">leaderboard</span>
+<span class="font-label-md text-label-md">Analysis</span>
+</button>
+<!-- Profile (Inactive) -->
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:bg-surface-container-low rounded-full active:scale-90 transition-all duration-200">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</button>
+</nav>
+</body></html>
